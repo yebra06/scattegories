@@ -196,3 +196,13 @@ export const questions = [
     "Words with double letters",
     "World leaders/politicians"
 ];
+
+export default function getRandomQuestions(numQuestions) {
+    let questionList = [];
+
+    while (numQuestions--) {
+        questionList[numQuestions] = questions[Math.floor(Math.random() * questions.length)];
+    }
+
+    return questionList;
+}

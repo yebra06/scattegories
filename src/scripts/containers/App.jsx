@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 
+import getRandomQuestions from "../utils/questions";
+import { QuestionList } from "../components/QuestionList.jsx";
+import { Timer } from "../components/Timer.jsx";
+
 export default class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             isPaused: true,
-            secondsRemaining: 60
+            secondsRemaining: 60,
+            questions: [],
+            numberOfQuestions: 12
         };
+
+        this.handlePauseResume = this.handlePauseResume.bind(this);
     }
 
     componentDidMount() {
+        this.setState({
+            questions: getRandomQuestions(this.state.numberOfQuestions)
+        });
+
         this.timerID = setInterval(
             () => this.tick(), 1000
         );
@@ -32,12 +44,21 @@ export default class App extends Component {
         }
     }
 
+    handlePauseResume() {
+        this.setState(previousState => ({
+            isPaused: !previousState.isPaused,
+            questions: previousState.questions
+        }));
+    }
+
     render() {
-        const { secondsRemaining } = this.state;
+        const { isPaused, secondsRemaining, questions } = this.state;
 
         return (
             <div>
-                <div className="count-down-timer">{secondsRemaining}</div>
+                <Timer secondsRemaining={secondsRemaining} />
+                <button onClick={this.handlePauseResume}>{isPaused ? "Start" : "Pause"}</button>
+                <QuestionList questions={questions} />
             </div>
         );
     }

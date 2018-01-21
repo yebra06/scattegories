@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const ROOT_DIR = path.resolve('.');
 const APP_DIR = path.resolve(ROOT_DIR, 'src');
@@ -10,8 +11,8 @@ module.exports = {
     entry: APP_DIR + '/index.js',
     output: {
         path: BUILD_DIR,
-        // publicPath: 'http://localhost:8000/',
-        filename: 'bundle.js'
+        publicPath: 'http://localhost:8080/',
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
@@ -36,6 +37,7 @@ module.exports = {
             template: path.resolve(APP_DIR, 'index.html'),
             filename: 'index.html',
             inject: true
-        })
+        }),
+        new UglifyJSPlugin(),
     ]
 };
