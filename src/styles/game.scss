@@ -1,0 +1,11 @@
+
+.game {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .game-item {
+        display: flex;
+        flex-direction: column;
+    }
+}

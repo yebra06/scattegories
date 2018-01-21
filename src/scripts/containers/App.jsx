@@ -1,65 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import getRandomQuestions from "../utils/questions";
-import { QuestionList } from "../components/QuestionList.jsx";
-import { Timer } from "../components/Timer.jsx";
+import Game from './Game.jsx';
 
-export default class App extends Component {
+const App = () => {
+    return (
+        <div>
+            <Game />
+        </div>
+    );
+};
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isPaused: true,
-            secondsRemaining: 60,
-            questions: [],
-            numberOfQuestions: 12
-        };
-
-        this.handlePauseResume = this.handlePauseResume.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({
-            questions: getRandomQuestions(this.state.numberOfQuestions)
-        });
-
-        this.timerID = setInterval(
-            () => this.tick(), 1000
-        );
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        const { isPaused, secondsRemaining } = this.state;
-
-        this.setState({
-            secondsRemaining: !isPaused ? secondsRemaining - 1 : secondsRemaining
-        });
-
-        if (secondsRemaining <= 1) {
-            clearInterval(this.timerID);
-        }
-    }
-
-    handlePauseResume() {
-        this.setState(previousState => ({
-            isPaused: !previousState.isPaused,
-            questions: previousState.questions
-        }));
-    }
-
-    render() {
-        const { isPaused, secondsRemaining, questions } = this.state;
-
-        return (
-            <div>
-                <Timer secondsRemaining={secondsRemaining} />
-                <button onClick={this.handlePauseResume}>{isPaused ? "Start" : "Pause"}</button>
-                <QuestionList questions={questions} />
-            </div>
-        );
-    }
-}
+export default App;

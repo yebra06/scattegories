@@ -5,9 +5,5 @@ export const QuestionList = ({ questions }) => {
         <li key={i}>{question}</li>
     );
 
-    return (
-        <div>
-            <ol>{questionList}</ol>
-        </div>
-    );
+    return <ol>{questionList}</ol>;
 };
