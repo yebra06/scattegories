@@ -71,19 +71,18 @@ export default class Game extends Component {
         return (
             <div className="game">
                 <div className="game-item">
-                    <Letter letter={letter}/>
+                    <Letter letter={letter} />
                 </div>
                 <div className="game-item">
-                    <div className="timer">
-                        <Timer secondsRemaining={secondsRemaining} />
-                        <button onClick={this.handlePauseResume}>{isPaused ? "Start" : "Pause"}</button>
-                        <button onClick={this.handleNewGame}>New Game</button>
-                    </div>
+                    <Timer
+                        secondsRemaining={secondsRemaining}
+                        isPaused={isPaused}
+                        handleNewGame={this.handleNewGame.bind(this)}
+                        handlePauseResume={this.handlePauseResume.bind(this)}
+                    />
                 </div>
                 <div className="game-item">
-                    <div className="question-list">
-                        <QuestionList questions={questions} />
-                    </div>
+                    <QuestionList questions={questions} />
                 </div>
             </div>
         );

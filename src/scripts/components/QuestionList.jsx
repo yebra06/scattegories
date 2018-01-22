@@ -5,7 +5,11 @@ const QuestionList = ({ questions }) => {
         <li key={i}>{question}</li>
     );
 
-    return <ol>{questionList}</ol>;
+    return (
+        <div className="question-list">
+            <ol>{questionList}</ol>
+        </div>
+    );
 };
 
 export default QuestionList;
