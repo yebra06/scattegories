@@ -1,4 +1,4 @@
-import { QUESTIONS, NUM_QUESTIONS } from './constants.js';
+import { QUESTIONS, NUM_QUESTIONS, LETTERS, NUM_LETTERS } from './constants.js';
 
 function dedupe(q) {
     let difference = 0;
@@ -14,13 +14,13 @@ function dedupe(q) {
             break;
         } else {
             while (difference--) {
-                q.questions.push(questionsList[Math.floor(Math.random() * NUM_QUESTIONS)]);
+                q.questions.push(QUESTIONS[Math.floor(Math.random() * NUM_QUESTIONS)]);
             }
         }
     }
 }
 
-function getRandomQuestions(numQuestions) {
+export function getRandomQuestions(numQuestions) {
     let q = {
         questions: [],
         numQuestions: numQuestions
@@ -35,4 +35,7 @@ function getRandomQuestions(numQuestions) {
     return q.questions;
 }
 
-export default getRandomQuestions;
+export function getRandomLetter() {
+    return LETTERS[Math.floor(Math.random() * NUM_LETTERS)];
+}
+

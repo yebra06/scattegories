@@ -196,5 +196,7 @@ export const QUESTIONS = [
     "Words with double letters",
     "World leaders/politicians"
 ];
-
 export const NUM_QUESTIONS = QUESTIONS.length;
+
+export const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'W'];
+export const NUM_LETTERS = LETTERS.length;
