@@ -1,4 +1,14 @@
 
 .timer {
-    font-size: 65px;
+    display: flex;
+    flex-direction: column;
+
+    .timer-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .seconds-remaining {
+        font-size: 60px;
+    }
 }

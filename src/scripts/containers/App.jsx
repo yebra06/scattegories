@@ -4,7 +4,7 @@ import Game from './Game.jsx';
 
 const App = () => {
     return (
-        <div>
+        <div className="container">
             <Game />
         </div>
     );

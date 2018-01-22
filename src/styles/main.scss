@@ -1,5 +1,8 @@
+@import "button.scss";
 @import "game.scss";
 @import "letter.scss";
+@import "normalize.scss";
+@import "questionList.scss";
 @import "timer.scss";
 
 html {
@@ -12,10 +15,16 @@ html {
 body {
     margin: 0;
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 *, *:before, *:after {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
     box-sizing: inherit;
+}
+
+.container {
+    flex: 1;
 }
