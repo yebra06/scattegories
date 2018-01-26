@@ -11,8 +11,8 @@ export default class Game extends Component {
         super(props);
         this.state = {
             isPaused: true,
-            gameTime: 60,
-            secondsRemaining: 60,
+            gameTime: 120,
+            secondsRemaining: 120,
             questions: [],
             numberOfQuestions: 12,
             letter: ' '
@@ -74,15 +74,15 @@ export default class Game extends Component {
                     <Letter letter={letter} />
                 </div>
                 <div className="game-item">
+                    <QuestionList questions={questions} />
+                </div>
+                <div className="game-item">
                     <Timer
                         secondsRemaining={secondsRemaining}
                         isPaused={isPaused}
                         handleNewGame={this.handleNewGame.bind(this)}
                         handlePauseResume={this.handlePauseResume.bind(this)}
                     />
-                </div>
-                <div className="game-item">
-                    <QuestionList questions={questions} />
                 </div>
             </div>
         );
