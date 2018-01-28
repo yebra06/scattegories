@@ -1,8 +1,8 @@
 import React from 'react';
 
-const QuestionList = ({ questions }) => {
+const QuestionList = ({ questions, isPaused }) => {
     const questionList = questions.map((question, i) =>
-        <li key={i}>{question}</li>
+        <li className={isPaused ? "question-blur" : "question"} key={i}>{question}</li>
     );
 
     return (

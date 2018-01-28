@@ -74,7 +74,7 @@ export default class Game extends Component {
                     <Letter letter={letter} />
                 </div>
                 <div className="game-item">
-                    <QuestionList questions={questions} />
+                    <QuestionList questions={questions} isPaused={isPaused} />
                 </div>
                 <div className="game-item">
                     <Timer
