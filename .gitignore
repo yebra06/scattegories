@@ -1,3 +1,5 @@
+.DS_Store
+
 dist/
 
 # Logs
@@ -60,4 +62,3 @@ typings/
 .env
 
 .idea
-

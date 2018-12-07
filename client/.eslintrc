@@ -1,0 +1,21 @@
+// 0 - off
+// 1 - warn
+// 2 - error
+{
+  "extends": ["airbnb"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0,
+    "jsx-quotes": [2, "prefer-single"]
+  },
+  "globals": {
+    "document": true
+  }
+}
