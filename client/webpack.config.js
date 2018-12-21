@@ -10,11 +10,11 @@ module.exports = {
 				use: 'babel-loader'
 			},
 			{
-                test: /\.s?css$/,
-                use: [
-					'style-loader',
-					'css-loader',
-					'sass-loader'
+			  test: /\.s?css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
 				]
 			}
 		]
@@ -27,8 +27,9 @@ module.exports = {
 	],
 	devServer: {
 		port: 3000,
+    hot: true,
 		proxy: {
-		  "/api": "http://localhost:8080"
+		  "/api": "http://localhost:8088"
 		}
   }
 };

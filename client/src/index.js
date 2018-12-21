@@ -1,8 +1,8 @@
 import { render } from 'react-dom';
-
-import AppRouter from './router/router';
-
 import 'normalize.css';
+
+import './config/globals';
 import './styles/main.scss';
+import AppRouter from './router/router';
 
 render(AppRouter, document.getElementById('app'));
