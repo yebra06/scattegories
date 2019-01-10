@@ -17,3 +17,4 @@ $ yarn start
 ```
 
 > Now check it out here -> up http://localhost:3000
+> Or here -> https://play-scattergories.herokuapp.com
