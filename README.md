@@ -1,7 +1,6 @@
 # scattegories
 
 Fun scattergories game.
-* In development
 
 ## Tools
 * [React](https://facebook.github.io/react/docs/getting-started.html) - For rendering
@@ -11,16 +10,10 @@ Fun scattergories game.
 ## Setup
 After one has cloned and navigated to repo:
 
-### Install dependencies and Build bundle
+### Install dependencies and run locally.
 ```bash
-$ yarn install
-$ yarn build
-```
-
-### Run server
-
-```bash
+$ yarn
 $ yarn start
 ```
 
-> Now check it out here -> up http://localhost:8080/
+> Now check it out here -> up http://localhost:3000

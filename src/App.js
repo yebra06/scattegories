@@ -1,7 +1,6 @@
-import Questions from './components/Questions/Questions';
-import Header from './components/Header/Header';
-import Letter from './components/Letter/Letter';
-import Timer from './components/Timer/Timer';
+import { getRandomQuestions } from './utils/questions';
+import Questions from './components/Questions';
+import Header from './components/Header';
 
 /**
  * Main application for scattergories game.
@@ -24,11 +23,9 @@ class App extends React.Component {
       () => this.tick(), 1000,
     );
 
-    fetch(`api/questions/${numQuestions}`)
-      .then(res => res.json())
-      .then((questions) => {
-        this.setState({ questions });
-      });
+    this.setState({
+      questions: getRandomQuestions(numQuestions),
+    });
   }
 
   handlePauseResume = () => {
@@ -40,17 +37,12 @@ class App extends React.Component {
 
   handleNewGame = () => {
     const { numQuestions, gameTime, letters } = this.state;
-
-    fetch(`api/questions/${numQuestions}`)
-      .then(res => res.json())
-      .then((questions) => {
-        this.setState({
-          isPaused: true,
-          secondsRemaining: gameTime,
-          questions,
-          letter: letters[Math.floor(Math.random() * letters.length)],
-        });
-      });
+    this.setState({
+      isPaused: true,
+      secondsRemaining: gameTime,
+      questions: getRandomQuestions(numQuestions),
+      letter: letters[Math.floor(Math.random() * letters.length)],
+    });
   }
 
   tick() {
@@ -75,19 +67,20 @@ class App extends React.Component {
         <Header />
         <div className='game'>
           <div className='game-section'>
-            <Letter letter={letter} />
+            <h1 className='letter'>{letter}</h1>
           </div>
-          <div className='game-section'>
+          <div className={isPaused ? 'game-section blurred' : 'game-section'}>
             <Questions questions={questions} />
           </div>
           <div className='game-section'>
-            <Timer
-              secondsRemaining={secondsRemaining}
-              isPaused={isPaused}
-            />
-            <button type='submit' onClick={this.handlePauseResume}>{isPaused ? 'Start' : 'Pause'}</button>
-            <button type='reset' onClick={this.handleNewGame}>New Game</button>
+            <h1 className='time'>{secondsRemaining}</h1>
           </div>
+        </div>
+        <div className='controls'>
+          <button className='controls-btn' type='submit' onClick={this.handlePauseResume}>
+            {isPaused || secondsRemaining === 0 ? 'Start' : 'Pause'}
+          </button>
+          <button className='controls-btn' type='submit' onClick={this.handleNewGame}>New Game</button>
         </div>
       </div>
     );

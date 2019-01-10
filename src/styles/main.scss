@@ -1,0 +1,19 @@
+@import 'app.scss';
+@import 'shared.scss';
+@import 'header.scss';
+@import 'questions.scss';
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}

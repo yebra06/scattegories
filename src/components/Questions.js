@@ -1,19 +1,17 @@
-import './Questions.scss';
-
 /**
  * Questions section of application.
  * Responsible for rendering list of random questions.
  */
 class Questions extends React.Component {
   static propTypes = {
-    questions: PropTypes.arrayOf(Object).isRequired,
+    questions: PropTypes.arrayOf(PropTypes.string).isRequired,
   }
 
   render() {
     const { questions } = this.props;
-    const questionList = questions.map(q => (
-      <li key={q._id}>
-        {q.question}
+    const questionList = questions.map((q, i) => (
+      <li key={q[i]}>
+        {q}
       </li>
     ));
 

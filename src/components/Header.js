@@ -1,4 +1,3 @@
-import './Header.scss';
 
 /**
  * Header component.

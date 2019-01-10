@@ -1,0 +1,41 @@
+// Gutters
+$gutter-sm: 5px;
+$gutter: 20px;
+$gutter-lg: 30px;
+
+// Screens
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+// Mixins
+@mixin xs {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
